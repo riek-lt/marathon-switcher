@@ -50,7 +50,7 @@ Note that the first run is #0.
 
 <!-- this was a quick brain dump, update later -->
 
-If you want to work on the project first make sure you have installed Node.js (12.x and up)
+If you want to work on the project first make sure you have installed Node.js (tested with 12.x and 14.x)
 
 This quick setup guide is focused for windows systems, if you aren't using Windows, check out the [NodeGui docs](https://docs.nodegui.org/docs/guides/getting-started/)
 
@@ -71,7 +71,7 @@ git clone https://github.com/riek-lt/hereford.git
 
 move into the project folder
 
-install all dependensies
+install all dependensies using
 
 ```bash
 npm install
