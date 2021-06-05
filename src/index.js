@@ -52,21 +52,33 @@ marathonSubmit.addEventListener('clicked', () => {
 
   urlData = urlData.toLowerCase();
 
-  console.log(urlData.includes('horaro'));
-  console.log(urlData.split('/'));
-
-  if (urlData.includes('oengus')) {
-  } else if (urlData.includes('horaro')) {
-  } else {
-    // err
+  // remove http
+  if (urlData.includes('http://') || urlData.includes('https://')) {
+    urlData = urlData.split('//')[1];
   }
 
-  // Horaro
-  //API example URL: https://horaro.org/-/api/v1/events/uksg/schedules/uksgwin21
-  //HORARO example url https://horaro.org/uksg/uksgwin21
+  if (urlData.includes('oengus')) {
+    // Oengus
+    // URL https://oengus.io/marathon/bsgo5/schedule
+    // API https://oengus.io/api/marathons/bsgo5/schedule
+    const slug = urlData.split('/')[2];
+    const apiUrl = `https://oengus.io/api/marathons/${slug}/schedule`;
+    console.log(apiUrl);
 
-  // Oengus
-  // https://oengus.io/api/marathons/bsgo5/schedule
+    loadedMarathonLabel.setText(`Loaded marathon: ${slug}`);
+  } else if (urlData.includes('horaro')) {
+    // Horaro
+    // URL https://horaro.org/uksg/uksgwin21
+    // API https://horaro.org/-/api/v1/events/uksg/schedules/uksgwin21
+    const slug = urlData.split('/');
+    const apiUrl = `https://horaro.org/-/api/v1/events/${slug[1]}/schedules/${slug[2]}`;
+    console.log(apiUrl);
+
+    loadedMarathonLabel.setText(`Loaded marathon: ${slug[2]}`);
+  } else {
+    // err
+    loadedMarathonLabel.setText(`Loaded marathon: error`);
+  }
 
   // fetch run
 });
@@ -121,6 +133,11 @@ rootLayout.addWidget(marathonSetup);
 
 // rootLayout.addWidget(writeFileButton);
 // rootLayout.addWidget(button2);
+
+const loadedMarathonLabel = new QLabel();
+loadedMarathonLabel.setText('Loaded marathon: ');
+// marathonSetupInputsLayout.addWidget(marathonTextInput);
+rootLayout.addWidget(loadedMarathonLabel);
 
 //
 rootLayout.addWidget(nextRunButton);
