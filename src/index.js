@@ -41,11 +41,35 @@ marathonSetupInputs.setLayout(marathonSetupInputsLayout);
 const marathonTextInput = new QLineEdit();
 
 const marathonTextLabel = new QLabel();
-marathonTextLabel.setText('Enter the oengus slug or full horaro URL');
+marathonTextLabel.setText('Enter Oengus or Horaro URL');
 marathonSetupInputsLayout.addWidget(marathonTextInput);
 
 const marathonSubmit = new QPushButton();
-marathonSubmit.setText('Fetch run');
+marathonSubmit.setText('Fetch marathon');
+marathonSubmit.addEventListener('clicked', () => {
+  let urlData = marathonTextInput.text();
+  console.log(urlData);
+
+  urlData = urlData.toLowerCase();
+
+  console.log(urlData.includes('horaro'));
+  console.log(urlData.split('/'));
+
+  if (urlData.includes('oengus')) {
+  } else if (urlData.includes('horaro')) {
+  } else {
+    // err
+  }
+
+  // Horaro
+  //API example URL: https://horaro.org/-/api/v1/events/uksg/schedules/uksgwin21
+  //HORARO example url https://horaro.org/uksg/uksgwin21
+
+  // Oengus
+  // https://oengus.io/api/marathons/bsgo5/schedule
+
+  // fetch run
+});
 marathonSetupInputsLayout.addWidget(marathonSubmit);
 
 marathonSetupLayout.addWidget(marathonTextLabel);
@@ -85,7 +109,7 @@ button2.setText('Click me');
 button2.addEventListener('clicked', () => {
   console.log('the button was clicked');
 
-  fs.writeFile('newfile.txt', 'Learn Node FS module', (err: any) => {
+  fs.writeFile('newfile.txt', 'Learn Node FS module', (err) => {
     if (err) throw err;
     console.log('File is created successfully.');
   });
@@ -140,4 +164,4 @@ win.setStyleSheet(
 );
 win.show();
 
-(global as any).win = win;
+global.win = win;

@@ -13,14 +13,14 @@ const twitchSync = require('./src/twitchSync.js');
 const deck = require('./src/deck.js');
 
 //Text files
-const txtRunner1 = './' + folderName + '/runner1.txt';
-const txtRunner2 = './' + folderName + '/runner2.txt';
-const txtRunner3 = './' + folderName + '/runner3.txt';
-const txtRunner4 = './' + folderName + '/runner4.txt';
-const txtGame = './' + folderName + '/game.txt';
-const txtCategory = './' + folderName + '/category.txt';
-const txtEstimate = './' + folderName + '/estimate.txt';
-const txtConsole = './' + folderName + '/console.txt';
+const txtRunner1 = `./${folderName}/runner1.txt`;
+const txtRunner2 = `./${folderName}/runner2.txt`;
+const txtRunner3 = `./${folderName}/runner3.txt`;
+const txtRunner4 = `./${folderName}/runner4.txt`;
+const txtGame = `./${folderName}/game.txt`;
+const txtCategory = `./${folderName}/category.txt`;
+const txtEstimate = `./${folderName}/estimate.txt`;
+const txtConsole = `./${folderName}/console.txt`;
 const txtArray = [
   txtGame,
   txtCategory,
